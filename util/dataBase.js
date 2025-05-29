@@ -2,7 +2,8 @@ const mongodb = require("mongodb");
 
 const MongoClient = mongodb.MongoClient;
 
-const connectionURl = "mongodb://127.0.0.1:27017";
+//const connectionURl = "mongodb://127.0.0.1:27017";
+const connectionURl = "mongodb://mongo:27017";
 
 const dbName = "onlineShop";
 
