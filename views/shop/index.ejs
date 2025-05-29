@@ -1,0 +1,39 @@
+<%- include('../includes/header.ejs') %>
+
+<main class="product-list-container">
+  <section>
+    <h1>Shop Store</h1>
+    <h2>Available Products</h2>
+
+    <% if (productArr.length > 0) { %>
+    <div class="product-grid">
+      <% for (let product of productArr) { %>
+      <div class="product-card">
+        <img
+          src="<%= product.imageUrl %>"
+          alt="<%= product.title %>"
+          class="product-img"
+        />
+
+        <div class="product-info">
+          <h3><%= product.title %></h3>
+          <% if (product.price) { %>
+          <p><strong>Price:</strong> $<%= product.price %></p>
+          <% } %> <% if (product.description) { %>
+          <p><%= product.description %></p>
+          <% } %>
+        </div>
+        <!-- Add to Cart Form -->
+        <form action="/cart" method="POST">
+          <button type="submit">Add to Cart 🛒</button>
+        </form>
+      </div>
+      <% } %>
+    </div>
+    <% } else { %>
+    <p class="no-product">No products available yet.</p>
+    <% } %>
+  </section>
+</main>
+
+<%- include('../includes/footer.ejs') %>

@@ -1,0 +1,43 @@
+<%- include('../includes/header.ejs') %>
+
+<style>
+  .product-detail-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .product-detail-card {
+    display: flex;
+    max-width: 800px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  .product-detail-img {
+    width: 50%;
+    object-fit: cover;
+  }
+  .product-detail-info {
+    padding: 1.5rem;
+    background-color: #fff;
+    width: 50%;
+  }
+</style>
+<main class="content product-detail-container">
+  <div class="product-detail-card">
+    <img
+      src="<%= product.imageUrl %>"
+      alt="<%= product.title %>"
+      class="product-detail-img"
+    />
+    <div class="product-detail-info">
+      <h1><%= product.title %></h1>
+      <p><strong>Price:</strong> $<%= product.price %></p>
+      <p><strong>Description:</strong> <%= product.description %></p>
+     <%- include('../includes/addToCart.ejs',{product:product})%>
+    </div>
+  </div>
+</main>
+
+<%- include('../includes/footer.ejs') %>
