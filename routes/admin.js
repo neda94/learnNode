@@ -17,11 +17,11 @@ const upload = multer({ storage: storage });
 
 router.get("/add-product", adminController.addProductPage);
 
-// router.get("/products", adminController.getProducts);
+router.get("/products", adminController.getProducts);
 
 router.post("/add-product", upload.single("image"), adminController.sendProducts);
 
-// router.post("/delete-product",adminController.deleteProduct)
+router.post("/delete-product",adminController.deleteProduct)
 
 module.exports = router;
 
